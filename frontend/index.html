@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphrager - 智能知识图谱生成器</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/vis-network/dist/vis-network.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Graphrager 智能知识图谱生成器</h1>
+        
+        <!-- 模型选择器 -->
+        <div class="model-selector">
+            <label for="model-selector">选择语言模型：</label>
+            <select id="model-selector">
+                <option value="">加载中...</option>
+            </select>
+        </div>
+
+        <!-- 处理状态 -->
+        <div id="processing-status"></div>
+
+        <!-- 步骤1：网页内容提取 -->
+        <div class="step-section">
+            <h3>1. 网页内容提取</h3>
+            <div class="input-group">
+                <label for="url-input">输入网页URL：</label>
+                <input type="text" id="url-input" placeholder="请输入要分析的网页URL，例如：https://example.com">
+                <button id="extract-btn">提取内容</button>
+            </div>
+            <div class="output-group">
+                <label for="extracted-content">提取结果：</label>
+                <textarea id="extracted-content" readonly placeholder="网页内容将显示在这里..."></textarea>
+            </div>
+        </div>
+
+        <!-- 步骤2：结构化内容生成 -->
+        <div class="step-section">
+            <h3>2. 结构化内容生成</h3>
+            <div class="input-group">
+                <label for="prompt-input">自定义提示词（可选）：</label>
+                <textarea id="prompt-input" 
+                    placeholder="可以自定义提示词来指导AI生成结构化内容，如果留空将使用默认提示词。&#10;系统会自动将提取的内容填充到提示词中的{text}占位符位置。"></textarea>
+            </div>
+            <div class="input-group">
+                <label for="content-input">输入内容：</label>
+                <textarea id="content-input" 
+                    placeholder="输入要处理的文本内容，或等待上一步的提取结果自动填充..."></textarea>
+                <button id="structure-btn">生成结构化内容</button>
+            </div>
+            <div class="output-group">
+                <label for="structured-content">生成结果：</label>
+                <textarea id="structured-content" readonly 
+                    placeholder="结构化的JSON内容将显示在这里..."></textarea>
+            </div>
+        </div>
+
+        <!-- 步骤3：知识图谱生成 -->
+        <div class="step-section">
+            <h3>3. 知识图谱可视化</h3>
+            <div class="input-group">
+                <label for="graph-input">JSON数据：</label>
+                <textarea id="graph-input" 
+                    placeholder="输入JSON数据或等待上一步的生成结果自动填充...&#10;格式：{&#10;  &quot;nodes&quot;: [{&quot;id&quot;: &quot;1&quot;, &quot;label&quot;: &quot;实体1&quot;, &quot;type&quot;: &quot;person&quot;}],&#10;  &quot;edges&quot;: [{&quot;source&quot;: &quot;1&quot;, &quot;target&quot;: &quot;2&quot;, &quot;label&quot;: &quot;关系&quot;}]&#10;}"></textarea>
+                <button id="generate-btn">生成图谱</button>
+            </div>
+            <div id="graph-container"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

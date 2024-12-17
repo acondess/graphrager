@@ -1,0 +1,246 @@
+/* 全局样式 */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f5f6fa;
+    --text-color: #2c3e50;
+    --border-color: #dcdde1;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+header p {
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+/* 步骤部分样式 */
+.step-section {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    opacity: 0.7;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.step-section.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.step-header h2 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.5em;
+}
+
+.step-status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    background: #eee;
+    color: #666;
+}
+
+.active .step-status {
+    background: var(--primary-color);
+    color: white;
+}
+
+.step-status.completed {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* 输入容器样式 */
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input[type="url"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+input[type="url"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(52,152,219,0.3);
+}
+
+/* 预览框样式 */
+.preview-box {
+    background: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+    max-height: 300px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    font-family: monospace;
+}
+
+.json-content {
+    font-family: 'Consolas', monospace;
+    font-size: 0.9em;
+}
+
+/* 提示词输入框样式 */
+.prompt-input {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+    margin: 10px 0;
+    resize: vertical;
+}
+
+.prompt-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(52,152,219,0.3);
+}
+
+/* 模型选择样式 */
+.model-selection {
+    margin: 20px 0;
+}
+
+.model-dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: white;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.model-dropdown:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(52,152,219,0.3);
+}
+
+/* 按钮样式 */
+.action-buttons {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.primary-btn, .secondary-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #2980b9;
+}
+
+.secondary-btn {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: #7f8c8d;
+}
+
+/* 可视化容器样式 */
+.visualization-container {
+    margin-top: 20px;
+    background: white;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+#graph-visualization {
+    width: 100%;
+    height: 600px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.node-details {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    display: none;
+}
+
+.node-details.show {
+    display: block;
+}
+
+/* 状态显示样式 */
+.status {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    color: #666;
+}
